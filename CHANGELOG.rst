@@ -2,8 +2,8 @@
 Changelog for package ps4eye
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2014-12-28)
+------------------
 * I found kenel 3.16 does not detect ps4eye, update document
 * Update README.md
 * change to use rospack.find to locate camera_info.
