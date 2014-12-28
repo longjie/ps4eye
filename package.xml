@@ -14,6 +14,11 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <run_depend>gscam</run_depend>
+  <run_depend>image_proc</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>stereo_image_proc</run_depend>
+
   <export>
   </export>
 </package>
