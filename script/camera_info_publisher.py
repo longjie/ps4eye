@@ -18,11 +18,13 @@ class CameraInfoPublisher:
         self.right_cam_info.header = left_cam_info_org.header
         publisher.publish()
 
-    def __init__(self, camera_name, left_file_name, right_file_name): 
+    def __init__(self, camera_name):
         self.left_cam_info_org = 0
         self.right_cam_info_org = 0
 
         # yamlファイルを読み込んでCameraInfoを返す
+        left_file_name  = rospy.get_param('~left_file_name',  rospack.get_path('ps4eye')+'/camera_info/left.yaml')
+        right_file_name = rospy.get_param('~right_file_name', rospack.get_path('ps4eye')+'/camera_info/right.yaml')
         self.left_cam_info = parse_yaml(left_file_name)
         self.right_cam_info = parse_yaml(right_file_name)
         left_topic = "/" + camera_name + "/left/camera_info"
@@ -68,7 +70,7 @@ if __name__ == '__main__':
     argv = rospy.myargv(sys.argv)
     rospy.init_node("camera_info_publisher")
     rospack = rospkg.RosPack()
-    publisher = CameraInfoPublisher('stereo', rospack.get_path('ps4eye')+'/camera_info/left.yaml',rospack.get_path('ps4eye')+'/camera_info/right.yaml')
+    publisher = CameraInfoPublisher('stereo')
 
     while not rospy.is_shutdown():
         rospy.sleep(rospy.Duration(.1))
