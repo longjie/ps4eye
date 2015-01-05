@@ -24,7 +24,7 @@
 1. Run ps4eye_init
 ```
 $ cd ps4eye/python
-$ sudo ./ps4eye_init
+$ sudo ./ps4eye_init.py
 ```
 2. Check if you can obtain the  image from ps4 camera by webcam software (cheese, etc).
 
