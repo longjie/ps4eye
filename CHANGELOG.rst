@@ -2,8 +2,8 @@
 Changelog for package ps4eye
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.2 (2015-01-08)
+------------------
 * use param to set camera_info
 * add run_depends
 * add arg for camera_info and camera_transformation
