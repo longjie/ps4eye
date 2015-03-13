@@ -69,5 +69,10 @@
     <param name="left_file_name"  value="$(arg camera_info_file_left)"  />
     <param name="right_file_name" value="$(arg camera_info_file_right)" />
   </node>
-  <node name="stereo_image_proc" pkg="stereo_image_proc" type="stereo_image_proc" ns="stereo"/>
+
+  <group ns="stereo">
+    <include file="$(find stereo_image_proc)/launch/stereo_image_proc.launch">
+      <arg name="manager" value="/standalone" />
+    </include>
+  </group>
 </launch>
