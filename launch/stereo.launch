@@ -28,7 +28,7 @@
   <arg name="width" default="1748"/>
   <arg name="height" default="408"/>
   <arg name="PUBLISH_FRAME" default="false"/>
-  <node name="gscam_driver" pkg="gscam" type="gscam" output="screen">
+  <node name="gscam_driver" pkg="gscam" type="gscam" output="screen" if="$(arg DEVICE)">
     <param name="camera_name" value="default"/>
     <param name="gscam_config" value="v4l2src device=$(arg DEVICE) ! video/x-raw-yuv,framerate=$(arg FPS),width=$(arg width),height=$(arg height) ! ffmpegcolorspace"/>
     <param name="frame_id" value="/ps4eye_frame"/>
