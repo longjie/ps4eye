@@ -63,7 +63,9 @@
     <!-- Dont use original camera info -->
     <remap from="/stereo/left/camera_info" to="/null/left/camera_info" />
   </node>
-  <node name="camera_transform" pkg="tf" type="static_transform_publisher" args="$(arg parent_transform) $(arg parent_frame) /ps4eye_frame 10"/>
+
+  <arg name="PUBLISH_TF" default="true" />
+  <node name="camera_transform" pkg="tf" type="static_transform_publisher" args="$(arg parent_transform) $(arg parent_frame) /ps4eye_frame 10" if="$(arg PUBLISH_TF)"/>
 
   <node pkg="ps4eye" type="camera_info_publisher.py" name="camera_info_publisher" >
     <param name="left_file_name"  value="$(arg camera_info_file_left)"  />
