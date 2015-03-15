@@ -13,8 +13,8 @@ Changelog for package ps4eye
   ps4eys_init は ps4_init.py ??? -> https://github.com/ps4eye/ps4eye/tree/master/python
 * Contributors: Kei Okada, Ron Tajima
 
-Forthcoming
------------
+0.0.3 (2015-03-16)
+------------------
 * Merge pull request `#9 <https://github.com/longjie/ps4eye/issues/9>`_ from hyaguchijsk/bagfile_player_mode
   Bagfile player mode
 * if DEVICE is false, gscam does not run, to use bag file including /camera/{image_raw,camera_info}
