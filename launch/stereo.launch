@@ -28,7 +28,7 @@
   <arg name="width" default="1748"/>
   <arg name="height" default="408"/>
   <arg name="PUBLISH_FRAME" default="false"/>
-  <node name="gscam_driver" pkg="gscam" type="gscam" output="screen">
+  <node name="gscam_driver" pkg="gscam" type="gscam" output="screen" if="$(arg DEVICE)">
     <param name="camera_name" value="default"/>
     <param name="gscam_config" value="v4l2src device=$(arg DEVICE) ! video/x-raw-yuv,framerate=$(arg FPS),width=$(arg width),height=$(arg height) ! ffmpegcolorspace"/>
     <param name="frame_id" value="/ps4eye_frame"/>
@@ -63,7 +63,9 @@
     <!-- Dont use original camera info -->
     <remap from="/stereo/left/camera_info" to="/null/left/camera_info" />
   </node>
-  <node name="camera_transform" pkg="tf" type="static_transform_publisher" args="$(arg parent_transform) $(arg parent_frame) /ps4eye_frame 10"/>
+
+  <arg name="PUBLISH_TF" default="true" />
+  <node name="camera_transform" pkg="tf" type="static_transform_publisher" args="$(arg parent_transform) $(arg parent_frame) /ps4eye_frame 10" if="$(arg PUBLISH_TF)"/>
 
   <node pkg="ps4eye" type="camera_info_publisher.py" name="camera_info_publisher" >
     <param name="left_file_name"  value="$(arg camera_info_file_left)"  />
