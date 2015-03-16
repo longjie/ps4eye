@@ -21,6 +21,7 @@
 
   <!-- This launchfile should bring up a node that broadcasts a ros image
        transport on /webcam/image_raw -->
+  <arg name="load_driver" default="true" />
   <arg name="DEVICE" default="/dev/video1"/>
   <!-- The GStreamer framerate needs to be an integral fraction -->
   <arg name="FPS" default="60/1"/>
@@ -28,7 +29,7 @@
   <arg name="width" default="1748"/>
   <arg name="height" default="408"/>
   <arg name="PUBLISH_FRAME" default="false"/>
-  <node name="gscam_driver" pkg="gscam" type="gscam" output="screen" if="$(arg DEVICE)">
+  <node name="gscam_driver" pkg="gscam" type="gscam" output="screen" if="$(arg load_driver)">
     <param name="camera_name" value="default"/>
     <param name="gscam_config" value="v4l2src device=$(arg DEVICE) ! video/x-raw-yuv,framerate=$(arg FPS),width=$(arg width),height=$(arg height) ! ffmpegcolorspace"/>
     <param name="frame_id" value="/ps4eye_frame"/>
