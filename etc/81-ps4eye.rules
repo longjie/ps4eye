@@ -1,0 +1,2 @@
+ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idProduct}=="0580",ATTRS{idVendor}=="05a9",RUN+="/opt/hydro/bin/ps4eye/ps4eye_init.py"
+SUBSYSTEMS=="usb",ATTRS{idProduct}=="058a",ATTRS{idVendor}=="05a9",MODE="666"
