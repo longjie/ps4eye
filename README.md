@@ -38,6 +38,16 @@ $ rosrun image_view stereo_view stereo:=/stereo image:=image_rect_color
 ```
 5. Now you can see disparity image from the stereo camera. Done!
 
+## About ps4eye folder's contents
+
+ps4eye folder contains files:
+* firmware.bin
+* ps4eye_init.py
+
+Both files are originally from ps4eye project: [https://github.com/ps4eye](). Source code and binary are downloadable from there. This package include the two files only for convinience.
+
+ps4eye_init.py is from hyaguchijsk's branch: [https://github.com/hyaguchijsk/ps4eye/tree/use_full_path_to_load_firmware]() to make it easy to call from ROS system.
+
 ## Thanks
 
 Thanks for the incredible ps4 camera hackers.
