@@ -6,6 +6,8 @@
   <arg     if="$(arg respawn)" name="bond" value="" />
   <arg unless="$(arg respawn)" name="bond" value="--no-bond" />
 
+  <node pkg="nodelet" type="nodelet" name="standalone" args="manager"/>
+
   <!-- arguments for camera param uri -->
   <arg name="camera_info_file_right"
        default="$(find ps4eye)/camera_info/right.yaml" />
@@ -29,7 +31,10 @@
   <arg name="width" default="1748"/>
   <arg name="height" default="408"/>
   <arg name="PUBLISH_FRAME" default="false"/>
-  <node name="gscam_driver" pkg="gscam" type="gscam" output="screen" if="$(arg load_driver)">
+  <node name="gscam_driver" pkg="nodelet" type="nodelet"
+        args="load gscam/GSCamNodelet standalone"
+        output="screen"
+        if="$(arg load_driver)">
     <param name="camera_name" value="default"/>
     <param name="gscam_config" value="v4l2src device=$(arg DEVICE) ! video/x-raw-yuv,framerate=$(arg FPS),width=$(arg width),height=$(arg height) ! ffmpegcolorspace"/>
     <param name="frame_id" value="/ps4eye_frame"/>
@@ -37,7 +42,6 @@
     <param name="camera_info_url" value="$(arg camera_info_url_default)" />
   </node>
   <!-- Split image to left and right image -->
-  <node pkg="nodelet" type="nodelet" name="standalone" args="manager"/>
   <node pkg="nodelet" type="nodelet" name="split_right" args="load image_proc/crop_decimate standalone">
     <param name="camera_info_url" value="$(arg camera_info_url_right)" />
     <param name="queue_size" type="int" value="10" />
