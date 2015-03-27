@@ -1,5 +1,6 @@
 <launch>
   <arg name="manager" default="standalone" /> <!-- Must be globally qualified -->
+  <arg name="viewer" default="false" /> <!-- Must be globally qualified -->
   <arg name="respawn" default="false" />
   <!-- TODO Arguments for debayer, interpolation methods? -->
 
@@ -82,4 +83,8 @@
       <arg name="manager" value="/$(arg manager)" />
     </include>
   </group>
+
+  <!-- start viewer -->
+  <node name="stereo_view" pkg="image_view" type="stereo_view" args="stereo:=/stereo image:=image_rect_color" if="$(arg viewer)"/>
+
 </launch>

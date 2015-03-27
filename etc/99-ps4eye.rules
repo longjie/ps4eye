@@ -1,0 +1,5 @@
+# ps4eye camera permission setting
+ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idProduct}=="0580",ATTRS{idVendor}=="05a9",RUN+="/home/tajima/Codes/ros/hydro/install/share/ps4eye/script/ps4eye_init.py"
+SUBSYSTEMS=="usb",ATTRS{idProduct}=="058a",ATTRS{idVendor}=="05a9",MODE="666"
+# SUBSYSTEMS=="usb",ATTRS{idProduct}=="0580",ATTRS{idVendor}=="05a9",MODE="0666"
+# SUBSYSTEMS=="usb",ATTRS{idProduct}=="058a",ATTRS{idVendor}=="05a9",MODE="0666"
