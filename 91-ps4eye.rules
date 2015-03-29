@@ -1,0 +1,3 @@
+# ps4eye camera permission setting
+ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idProduct}=="0580",ATTRS{idVendor}=="05a9",RUN+="INIT_SCRIPT"
+SUBSYSTEMS=="usb",ATTRS{idProduct}=="058a",ATTRS{idVendor}=="05a9",MODE="666"
