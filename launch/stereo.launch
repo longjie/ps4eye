@@ -1,6 +1,6 @@
 <launch>
-  <arg name="manager" default="standalone" /> <!-- Must be globally qualified -->
   <arg name="viewer" default="false" /> <!-- Must be globally qualified -->
+  <arg name="manager" default="manager" /> <!-- Must be globally qualified -->
   <arg name="respawn" default="false" />
   <!-- TODO Arguments for debayer, interpolation methods? -->
 
