@@ -12,8 +12,8 @@ Changelog for package ps4eye
 * Update README.md (ps4eys_init is ps4_init.py)
 * Contributors: Kei Okada, Ron Tajima
 
-Forthcoming
------------
+0.0.4 (2015-03-30)
+------------------
 * Fix create_udev_rules option. Change README.md.
 * Add udev install script.
 * Automatically loading firmware.
