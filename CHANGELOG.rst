@@ -9,9 +9,21 @@ Changelog for package ps4eye
 * add arg for camera_info and camera_transformation
 * add install rule
 * add license and author
-* Update README.md
-  ps4eys_init は ps4_init.py ??? -> https://github.com/ps4eye/ps4eye/tree/master/python
+* Update README.md (ps4eys_init is ps4_init.py)
 * Contributors: Kei Okada, Ron Tajima
+
+Forthcoming
+-----------
+* Fix create_udev_rules option. Change README.md.
+* Add udev install script.
+* Automatically loading firmware.
+* all need is to run create_udev_rules script.
+* add viewer argment to stereo.launch. Set true to bring up stereo viewer.
+* Add ps4eye/ps4eye files and update README.md contents.
+* using  to nodelet manager name
+* use gscam nodelet instead of gscam node
+* use load_driver, instead of setting DEVICE false to check use real camera
+* Contributors: Hiroaki Yaguchi, Ron Tajima
 
 0.0.3 (2015-03-16)
 ------------------
@@ -45,7 +57,7 @@ Changelog for package ps4eye
 * add license and author
 * Update README.md
   ps4eys_init は ps4_init.py ??? -> https://github.com/ps4eye/ps4eye/tree/master/python
-* Contributors: Hiroaki Yaguchi, Kei Okada, Ron Tajima, Ryosuke Tajima
+* Contributors: Hiroaki Yaguchi, Kei Okada, Ron Tajima
 
 0.0.1 (2014-12-28)
 ------------------
@@ -56,4 +68,4 @@ Changelog for package ps4eye
 * add camera_info to camera_info directory.
 * add README. add stereo_image_proc to launch file.
 * add ps4eye: Playstation4 stereo camera launching set for ROS.
-* Contributors: Ryosuke Tajima, Ryohei Ueda, 
+* Contributors: Ron Tajima, Ryohei Ueda, 
