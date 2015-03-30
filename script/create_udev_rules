@@ -6,7 +6,7 @@ echo ""
 # sudo cp `rospack find ps4eye`/91-ps4eye.rules /etc/udev/rules.d
 init_script=`rospack find ps4eye`/script/ps4eye_init.py
 sudo cp `rospack find ps4eye`/91-ps4eye.rules /etc/udev/rules.d
-sudo sed -ie "s|INIT_SCRIPT|${init_script}|g" /etc/udev/rules.d/91-ps4eye.rules
+sudo sed -i -e "s|INIT_SCRIPT|${init_script}|g" /etc/udev/rules.d/91-ps4eye.rules
 echo ""
 echo "Restarting udev"
 echo ""

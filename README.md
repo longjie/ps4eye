@@ -21,18 +21,20 @@
 
 ## Usage
 
-1. Run ps4eye_init
+0. Run create_udev_rules. Enter sudo password to place /etc/udev/rules.d/91-ps4eye.rules. You need this step only once.
 ```
-$ cd ps4eye/python
-$ sudo ./ps4eye_init.py
+$ rosrun ps4eye create_udev_rules
 ```
-2. Check if you can obtain the  image from ps4 camera by webcam software (cheese, etc).
 
-3. Launch ROS nodes.
+1. Plug your ps4eye to USB 3.0 port.
+
+2. Check if you can obtain the  image from ps4 camera by webcam software (cheese, camorama, etc).
+
+3. Run stereo.launch. DEVICE option is used specify video device. You can bring up stereo viewer if viewer option is true.
 ```
-$ roslaunch ps4eye stereo.launch
+$ roslaunc stereo.launch DEVICE:=/dev/video0 viewer:=true
 ```
-4. Run viwer on another console.
+4. If you want to run viwer indivisually, use this command.
 ```
 $ rosrun image_view stereo_view stereo:=/stereo image:=image_rect_color
 ```
@@ -41,8 +43,8 @@ $ rosrun image_view stereo_view stereo:=/stereo image:=image_rect_color
 ## About ps4eye folder's contents
 
 ps4eye folder contains files:
-* firmware.bin
-* ps4eye_init.py
+* script/firmware.bin
+* script/ps4eye_init.py
 
 Both files are originally from ps4eye project: [https://github.com/ps4eye](). Source code and binary are downloadable from there. This package include the two files only for convinience.
 
