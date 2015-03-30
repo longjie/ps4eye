@@ -2,16 +2,6 @@
 Changelog for package ps4eye
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.0.2 (2015-01-08)
-------------------
-* use param to set camera_info
-* add run_depends
-* add arg for camera_info and camera_transformation
-* add install rule
-* add license and author
-* Update README.md (ps4eys_init is ps4_init.py)
-* Contributors: Kei Okada, Ron Tajima
-
 0.0.4 (2015-03-30)
 ------------------
 * Fix create_udev_rules option. Change README.md.
@@ -58,6 +48,16 @@ Changelog for package ps4eye
 * Update README.md
   ps4eys_init は ps4_init.py ??? -> https://github.com/ps4eye/ps4eye/tree/master/python
 * Contributors: Hiroaki Yaguchi, Kei Okada, Ron Tajima
+
+0.0.2 (2015-01-08)
+------------------
+* use param to set camera_info
+* add run_depends
+* add arg for camera_info and camera_transformation
+* add install rule
+* add license and author
+* Update README.md (ps4eys_init is ps4_init.py)
+* Contributors: Kei Okada, Ron Tajima
 
 0.0.1 (2014-12-28)
 ------------------
