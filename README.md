@@ -32,9 +32,9 @@ $ rosrun ps4eye create_udev_rules
 
 3. Run stereo.launch. DEVICE option is used specify video device. You can bring up stereo viewer if viewer option is true.
 ```
-$ roslaunc stereo.launch DEVICE:=/dev/video0 viewer:=true
+$ roslaunch stereo.launch DEVICE:=/dev/video0 viewer:=true
 ```
-4. If you want to run viwer indivisually, use this command.
+4. If you want to run the viewer individually, use this command.
 ```
 $ rosrun image_view stereo_view stereo:=/stereo image:=image_rect_color
 ```
