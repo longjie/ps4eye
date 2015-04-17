@@ -16,7 +16,9 @@
 
 * You may need newer linux kernel. Kernel version 3.17.3 is OK. 3.16.0 is NG.
 
-  If you are using ubuntu, please check [this page](http://kernel.ubuntu.com/~kernel-ppa/mainline/v3.17-utopic/) to update kernel
+  If you are using ubuntu, please check [this page](http://kernel.ubuntu.com/~kernel-ppa/mainline/v3.17.3-vivid/) to update kernel
+* You'll need Pyusb 1.0 or the script executed in the udev rules will silently fail.
+    sudo pip install --pre pyusb
 * Clone [ps4eye github repo](https://github.com/ps4eye/ps4eye)
 
 ## Usage
@@ -32,9 +34,9 @@ $ rosrun ps4eye create_udev_rules
 
 3. Run stereo.launch. DEVICE option is used specify video device. You can bring up stereo viewer if viewer option is true.
 ```
-$ roslaunc stereo.launch DEVICE:=/dev/video0 viewer:=true
+$ roslaunch stereo.launch DEVICE:=/dev/video0 viewer:=true
 ```
-4. If you want to run viwer indivisually, use this command.
+4. If you want to run the viewer individually, use this command.
 ```
 $ rosrun image_view stereo_view stereo:=/stereo image:=image_rect_color
 ```
