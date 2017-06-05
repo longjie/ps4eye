@@ -11,12 +11,15 @@ import rospkg
 
 class CameraInfoPublisher: 
 # Callback of the ROS subscriber. 
-    def callback(self, data):
+    def leftCallback(self, data):
         left_cam_info_org = data
-        right_cam_info_org = data
         self.left_cam_info.header = left_cam_info_org.header
-        self.right_cam_info.header = left_cam_info_org.header
-        publisher.publish()
+        self.leftPublish()
+
+    def rightCallback(self, data):
+        right_cam_info_org = data
+        self.right_cam_info.header = right_cam_info_org.header
+        self.rightPublish()
 
     def __init__(self, camera_name):
         self.left_cam_info_org = 0
@@ -30,19 +33,24 @@ class CameraInfoPublisher:
         left_topic = "/" + camera_name + "/left/camera_info"
         right_topic = "/" + camera_name + "/right/camera_info"
         # Timestampを合わせるためにsubする必要あり
-        rospy.Subscriber("/null/left/camera_info", CameraInfo, self.callback)
-        rospy.Subscriber("/null/right/camera_info", CameraInfo, self.callback)
+        rospy.Subscriber("/null/left/camera_info", CameraInfo, self.leftCallback)
+        rospy.Subscriber("/null/right/camera_info", CameraInfo, self.rightCallback)
 
         self.left_pub = rospy.Publisher(left_topic,CameraInfo) 
         self.right_pub = rospy.Publisher(right_topic,CameraInfo) 
 
-    def publish(self):
+    def leftPublish(self):
         '''
         now = rospy.Time.now()
         self.left_cam_info.header.stamp = now
+        '''
+        self.left_pub.publish(self.left_cam_info)
+
+    def rightPublish(self):
+        '''
+        now = rospy.Time.now()
         self.right_cam_info.header.stamp = now
         '''
-        self.left_pub.publish(self.left_cam_info)  
         self.right_pub.publish(self.right_cam_info)
 
 def parse_yaml(filename):
